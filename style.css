@@ -1,0 +1,17 @@
+* {
+	margin: 10px
+}
+
+table, th {
+	border: 1px solid black;
+}
+
+td {
+	padding: 10px;
+	border: 1px dashed black;
+}
+
+table {
+	min-width: 50%;
+	width: 100%;
+}
