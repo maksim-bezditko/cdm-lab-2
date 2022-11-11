@@ -18,8 +18,8 @@ const operations = ["&", "|", "-", "~", "(", ")"];
 
 function infixToPostfix(s) {
 	s = s.split(" ").join("");
-	let st = [];
-	let result = "";
+	let st = []; // []
+	let result = ""; // abc+-  ==== a - (b + c)
 
 	for (let i = 0; i < s.length; i++) {
 		let c = s[i];
@@ -36,7 +36,7 @@ function infixToPostfix(s) {
 				st.pop();
 			}
 			st.pop();
-		} else {
+		} else { 
 			while (st.length > 0 && prec(s[i]) <= prec(st[st.length - 1])) {
 				result += st[st.length - 1];
 				st.pop();
@@ -92,14 +92,13 @@ function withNumbers(str, obj) {
 	return arr.join("");
 }
 
-const expression = document.querySelector(".expression");
-const resultField = document.querySelector(".result-field")
-const calcButton = document.querySelector(".calculate");
+const expression = document.querySelector(".expression")
+const form = document.querySelector(".container");
 const table = document.querySelector(".table");
 let firstTr = document.querySelector(".first");
 
-calcButton.addEventListener("click", () => {
-	
+form.addEventListener("submit", (e) => {
+	e.preventDefault()
 	uniqueValues = []
 
 	
@@ -126,17 +125,17 @@ calcButton.addEventListener("click", () => {
 
 	for (let i of uniqueValues) {
 		firstTr.innerHTML += `
-			<td>${i}</td>
+			<td class="bold">${i}</td>
 		`;
 	}
 	firstTr.innerHTML += `
-		<td>Infix with numbers</td>
+		<td class="bold">Infix with numbers</td>
 	`;
 	firstTr.innerHTML += `
-		<td>Postfix with numbers</td>
+		<td class="bold">Postfix with numbers</td>
 	`;
 	firstTr.innerHTML += `
-		<td>Result</td>
+		<td class="bold">Result</td>
 	`;
 
 	
@@ -179,8 +178,7 @@ calcButton.addEventListener("click", () => {
 	}
 })
 
-function evaluatePostfix(exp)
-{
+function evaluatePostfix(exp) {
 		let stack=[];
 		for(let i = 0; i < exp.length; i++)
 		{

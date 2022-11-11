@@ -1,17 +1,28 @@
-* {
-	margin: 10px
-}
-
-table, th {
-	border: 1px solid black;
-}
-
-td {
-	padding: 10px;
-	border: 1px dashed black;
+body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: grid;
+	place-items: center;
 }
 
 table {
-	min-width: 50%;
 	width: 100%;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.calculate {
+	margin-top: 30px;
+}
+
+.my-container {
+	width: 90% !important;
+}
+
+h2 {
+	padding-bottom: 30px;
+}
+
+.bold {
+	font-weight: 700;
 }
